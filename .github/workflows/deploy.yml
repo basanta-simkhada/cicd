@@ -9,9 +9,10 @@ jobs:
   deploy:
     runs-on: self-hosted
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    steps:      
+      - name: Build Docker image
+        run: |
+          git pull origin
 
       - name: Build Docker image
         run: |
