@@ -1,0 +1,7 @@
+services:
+  node:
+    build: .
+    docker-file: Dockerfile
+  container-name: hello-node
+  ports:
+    - 3000:3000
