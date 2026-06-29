@@ -10,13 +10,11 @@ jobs:
     runs-on: self-hosted
 
     steps:      
-      - name: Build Docker image
-        run: |
-          git pull origin
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: |
-          docker build -t hello-node:latest .
+        run: docker build -t hello-node:latest .
 
       - name: Stop and remove old container
         run: |
@@ -24,8 +22,7 @@ jobs:
           docker rm hello-node || true
 
       - name: Start new container
-        run: |
-          docker run -d \
+        run: docker run -d \
             --name hello-node \
             --restart unless-stopped \
             -p 3000:3000 \
