@@ -6,6 +6,14 @@ on:
       - master
 
 jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: building the app
+        run: |
+          touch file1
+          echo "app is build" > file1
+
   deploy:
     runs-on: self-hosted
 
