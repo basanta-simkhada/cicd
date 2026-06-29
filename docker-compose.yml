@@ -5,4 +5,4 @@ services:
       docker-file: Dockerfile
     ports:
       - 3000:3000
-  container-name: hello-node
+    container-name: hello-node
