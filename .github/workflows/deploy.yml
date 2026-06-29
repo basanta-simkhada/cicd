@@ -22,7 +22,8 @@ jobs:
           docker rm hello-node || true
 
       - name: Start new container
-        run: docker run -d \
+        run: |
+          docker run -d \
             --name hello-node \
             --restart unless-stopped \
             -p 3000:3000 \
