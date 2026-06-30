@@ -27,7 +27,6 @@ jobs:
             java:
               - 'java/**'
 
-
   deploy-node:
     needs: detect-changes
     if: needs.detect-changes.outputs.node_changed == 'true'
@@ -49,7 +48,6 @@ jobs:
         run: |
           sleep 10
           curl http://localhost:3000
-
 
   deploy-java:
     needs: detect-changes
