@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - feature
-
 jobs:
 
   detect-changes:
@@ -29,7 +28,7 @@ jobs:
 
   deploy-node:
     needs: detect-changes
-    if: ${{ needs.detect-changes.outputs.node_changed == 'true' }}
+    if: needs.detect-changes.outputs.node_changed == 'true'
     runs-on: self-hosted
 
     steps:
@@ -46,12 +45,12 @@ jobs:
 
       - name: Verify Node deployment
         run: |
-          sleep 10  
-          curl  http://localhost:3000
+          sleep 10
+          curl http://localhost:3000
 
   deploy-java:
     needs: detect-changes
-    if: ${{ needs.detect-changes.outputs.java_changed == 'true' }}
+    if: needs.detect-changes.outputs.java_changed == 'true'
     runs-on: self-hosted
 
     steps:
